@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import mehdi.sakout.aboutpage.AboutPage;
+import mehdi.sakout.aboutpage.Element;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,8 +71,27 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Element versionElement = new Element();
+        versionElement.setTitle("Version 1.0.1.1");
+
+
+        View aboutPage = new AboutPage(getActivity().getApplicationContext())
+                .isRTL(false)
+                .setImage(R.drawable.profile_pic)
+                .addItem(versionElement)
+                .setDescription("NixonOK | Game Programmer")
+                .addGroup("Connect with Me")
+                .addEmail("nixonok@nixonok.xyz")
+                .addWebsite("http://nixonok.github.io/")
+                .addFacebook("nixonok")
+                .addTwitter("_nixonok")
+                .addYoutube("NixonOK")
+                .addPlayStore("com.iBlackSheep.nixonok.pro")
+                .addGitHub("nixonok")
+                .addInstagram("nixonok")
+                .create();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return aboutPage;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

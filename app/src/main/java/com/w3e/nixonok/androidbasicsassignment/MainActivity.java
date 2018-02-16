@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements  ProfileFragment.
 
                             ActionBar actionbar = getSupportActionBar();
                             actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#795548")));
+                            actionbar.setTitle("W3Engineers");
                         }
                         break;
                     case 1:
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements  ProfileFragment.
 
                             ActionBar actionbar = getSupportActionBar();
                             actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#9C27B0")));
-
+                            actionbar.setTitle("Camera Intent");
                         }
                         break;
                     case 2:
@@ -121,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements  ProfileFragment.
 
                             ActionBar actionbar = getSupportActionBar();
                             actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4CAF50")));
+                            actionbar.setTitle("About Developer");
                         }
                         break;
                 }
