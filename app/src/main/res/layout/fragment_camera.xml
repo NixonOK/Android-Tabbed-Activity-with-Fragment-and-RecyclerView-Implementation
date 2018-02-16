@@ -1,0 +1,18 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.w3e.nixonok.androidbasicsassignment.CameraFragment">
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/camera"
+        android:onClick="launchCamera"
+        android:layout_gravity="center"
+        android:elevation="1dp" />
+
+</FrameLayout>

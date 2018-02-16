@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Android Basics Assignment</string>
+    <string name="app_home">W3E</string>
+    <string name="app_camera_test">Camera</string>
+    <string name="app_profile">About</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">In base fragment</string>
+    <string name="cam">In cam fragment</string>
+    <string name="profile">In profile fragment</string>
+
+</resources>
