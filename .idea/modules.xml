@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Android-Tabbed-Activity-with-Fragment-and-RecyclerView-Implementation-master.iml" filepath="$PROJECT_DIR$/Android-Tabbed-Activity-with-Fragment-and-RecyclerView-Implementation-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android-Tabbed-Activity-with-Fragment-and-RecyclerView-Implementation.iml" filepath="$PROJECT_DIR$/Android-Tabbed-Activity-with-Fragment-and-RecyclerView-Implementation.iml" />
+      <module fileurl="file://C:\Users\NixonOK\AndroidStudioProjects\Office Assignment\Android-Tabbed-Activity-with-Fragment-and-RecyclerView-Implementation\Android-Tabbed-Activity-with-Fragment-and-RecyclerView-Implementation-master.iml" filepath="C:\Users\NixonOK\AndroidStudioProjects\Office Assignment\Android-Tabbed-Activity-with-Fragment-and-RecyclerView-Implementation\Android-Tabbed-Activity-with-Fragment-and-RecyclerView-Implementation-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

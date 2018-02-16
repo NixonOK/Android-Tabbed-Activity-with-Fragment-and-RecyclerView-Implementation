@@ -1,6 +1,6 @@
 package com.w3e.nixonok.androidbasicsassignment;
 
-import android.app.ActionBar;
+import android.support.v7.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
@@ -77,8 +77,6 @@ public class MainActivity extends AppCompatActivity implements  ProfileFragment.
         bottomNavigation.setTitleState(AHBottomNavigation.TitleState.SHOW_WHEN_ACTIVE);
         bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
 
-
-
         //Setting up Action bar color using # color code.
 
 
@@ -91,12 +89,17 @@ public class MainActivity extends AppCompatActivity implements  ProfileFragment.
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
 
+
+
                 switch (position) {
                     case 0:
                         currentFragment = FragmentRecyclerView.newInstance();
                         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimary));
+                            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
                             getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+
+                            ActionBar actionbar = getSupportActionBar();
+                            actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#795548")));
                         }
                         break;
                     case 1:
@@ -104,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements  ProfileFragment.
                         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             getWindow().setNavigationBarColor(getResources().getColor(R.color.colorCameraDark));
                             getWindow().setStatusBarColor(getResources().getColor(R.color.colorCameraDark));
+
+                            ActionBar actionbar = getSupportActionBar();
+                            actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#9C27B0")));
+
                         }
                         break;
                     case 2:
@@ -111,6 +118,9 @@ public class MainActivity extends AppCompatActivity implements  ProfileFragment.
                         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             getWindow().setNavigationBarColor(getResources().getColor(R.color.colorAboutDark));
                             getWindow().setStatusBarColor(getResources().getColor(R.color.colorAboutDark));
+
+                            ActionBar actionbar = getSupportActionBar();
+                            actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#4CAF50")));
                         }
                         break;
                 }
