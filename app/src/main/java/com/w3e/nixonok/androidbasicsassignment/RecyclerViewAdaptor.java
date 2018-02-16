@@ -68,42 +68,6 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
             }
 
         });
-
-//
-//        holder.buttonViewOption.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-////                //creating a popup menu
-////                PopupMenu popup = new PopupMenu(context, holder.buttonViewOption);
-////                //inflating menu from xml resource
-////                popup.inflate(R.menu.options_menu);
-////                //adding click listener
-////                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-////                    @Override
-////                    public boolean onMenuItemClick(MenuItem item) {
-////                        switch (item.getItemId()) {
-////                            case R.id.menu1:
-////                                //handle menu1 click
-////                                Toast.makeText(context, "menu 1", Toast.LENGTH_SHORT).show();
-////                                break;
-////                            case R.id.menu2:
-////
-////                                Toast.makeText(context, "menu 2", Toast.LENGTH_SHORT).show();
-////                                //handle menu2 click
-////                                break;
-////                            case R.id.menu3:
-////                                //handle menu3 click
-////                                break;
-////                        }
-////                        return false;
-////                    }
-////                });
-////                //displaying the popup
-////                popup.show();
-//
-//            }
-//        });
     }
 
 
@@ -122,7 +86,6 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
 
         public ViewHolder(View itemView) {
             super(itemView);
-
 
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
             textViewHead = (TextView) itemView.findViewById(R.id.textViewHead);

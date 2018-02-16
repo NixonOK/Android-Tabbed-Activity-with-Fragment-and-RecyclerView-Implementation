@@ -80,12 +80,31 @@ public class FragmentRecyclerView extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ArrayList<Section> sectionArrayList = new ArrayList<>();
-        for (int i = 0; i <2 ; i++) {
-
+        for (int i = 0; i <6 ; i++) {
             String label;
-            if (i == 0) label = "Student";
-            else if(i == 1 ) label = "Teacher";
-            else label = "Unknown";
+            switch (i) {
+                case 0:
+                    label = "Intern Engineer";
+                    break;
+                case 1:
+                    label = "Software Engineer";
+                    break;
+                case 2:
+                    label = "IOS Engineer";
+                    break;
+                case 3:
+                    label = "Q/A Tester";
+                    break;
+                case 4:
+                    label = "Game Programmer";
+                    break;
+                case 5:
+                    label = "Graphic Artist";
+                    break;
+                default:
+                    label = "Guest";
+                    break;
+            }
             // Item List
             ArrayList<Item> listItem = new ArrayList();
 
@@ -99,43 +118,13 @@ public class FragmentRecyclerView extends Fragment {
                 listItem.add(item);
             }
             // adding to arraylist
-            if (i == 0) sectionArrayList.add(new Section(label, listItem));
-            else if (i == 1) sectionArrayList.add(new Section(label, listItem));
-            else sectionArrayList.add(new Section(label, listItem));
+            sectionArrayList.add(new Section(label, listItem));
 
             // Custom Recycler View Adaptor
             RecyclerViewSectionAdaptor adapter = new RecyclerViewSectionAdaptor(sectionArrayList, getActivity());
             recyclerView.setAdapter(adapter);
 
         }
-//
-//
-//// Item List
-//        List<Item> listItem = new ArrayList();
-//
-//        for (int i = 0; i < 5; i++) {
-//
-//            Item item = new Item();
-//            item.setImage(images[0]);
-//            item.setTitle("Title " + (i + 1));
-//            item.setDescription("Description " + (i + 1));
-//            item.setType(Item.TEACHER_TYPE);
-//
-//            listItem.add(item);
-//        }
-//        for (int i = 0; i < 5; i++) {
-//
-//            Item item = new Item();
-//            item.setImage(images[0]);
-//            item.setTitle("Title " + (i + 1));
-//            item.setDescription("Description " + (i + 1));
-//            item.setType(Item.STUDENT_TYPE);
-//
-//            listItem.add(item);
-//        }
-
-
-
 
         return rootView;
     }
