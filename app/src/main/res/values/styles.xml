@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme2">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorCamera</item>
+        <item name="colorPrimaryDark">@color/colorCameraDark</item>
+    </style>
+
+    <style name="AppTheme3">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorAbout</item>
+        <item name="colorPrimaryDark">@color/colorAboutDark</item>
+    </style>
+
 </resources>

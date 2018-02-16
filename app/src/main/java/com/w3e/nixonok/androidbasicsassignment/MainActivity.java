@@ -1,58 +1,126 @@
 package com.w3e.nixonok.androidbasicsassignment;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+
 public class MainActivity extends AppCompatActivity implements  ProfileFragment.OnFragmentInteractionListener, FragmentRecyclerView.OnFragmentInteractionListener, CameraFragment.OnFragmentInteractionListener {
 
     private TextView mTextMessage;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment currentFragment = null;
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    currentFragment = FragmentRecyclerView.newInstance();
-                    break;
-                case R.id.navigation_camera:
-                    currentFragment = CameraFragment.newInstance();
-                    break;
-                case R.id.navigation_notifications:
-                    currentFragment = ProfileFragment.newInstance();
-                    break;
-            }
-
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, currentFragment);
-            transaction.commit();
-            return true;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-
-        //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, FragmentRecyclerView.newInstance());
         transaction.commit();
 
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        //navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        AHBottomNavigation bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
+
+// Create items
+        AHBottomNavigationItem resyclerViewTabButton = new AHBottomNavigationItem(R.string.app_home, R.drawable.ic_home_black_24dp, R.color.colorPrimary);
+        AHBottomNavigationItem cameraViewTabButton = new AHBottomNavigationItem(R.string.app_camera_test, R.drawable.ic_camera_black_24px, R.color.colorCamera);
+        AHBottomNavigationItem aboutPageTabButton = new AHBottomNavigationItem(R.string.app_profile, R.drawable.ic_assignment_ind_black_24px, R.color.colorAbout);
+
+// Add items
+        bottomNavigation.addItem(resyclerViewTabButton);
+        bottomNavigation.addItem(cameraViewTabButton);
+        bottomNavigation.addItem(aboutPageTabButton);
+
+// Set background color
+        bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#FEFEFE"));
+
+// Disable the translation inside the CoordinatorLayout
+        bottomNavigation.setBehaviorTranslationEnabled(false);
+
+// Enable the translation of the FloatingActionButton
+        //bottomNavigation.manageFloatingActionButtonBehavior(floatingActionButton);
+
+// Change colors
+        bottomNavigation.setAccentColor(Color.parseColor("#F63D2B"));
+        bottomNavigation.setInactiveColor(Color.parseColor("#747474"));
+
+// Force to tint the drawable (useful for font with icon for example)
+        bottomNavigation.setForceTint(true);
+
+// Display color under navigation bar (API 21+)
+// Don't forget these lines in your style-v21
+// <item name="android:windowTranslucentNavigation">true</item>
+// <item name="android:fitsSystemWindows">true</item>
+        bottomNavigation.setTranslucentNavigationEnabled(true);
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
+            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+        }
+
+// Manage titles
+        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.SHOW_WHEN_ACTIVE);
+        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
+
+
+
+        //Setting up Action bar color using # color code.
+
+
+// Use colored navigation with circle reveal effect
+        bottomNavigation.setColored(true);
+
+        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
+
+            Fragment currentFragment;
+            @Override
+            public boolean onTabSelected(int position, boolean wasSelected) {
+
+                switch (position) {
+                    case 0:
+                        currentFragment = FragmentRecyclerView.newInstance();
+                        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimary));
+                            getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
+                        }
+                        break;
+                    case 1:
+                        currentFragment = CameraFragment.newInstance();
+                        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorCameraDark));
+                            getWindow().setStatusBarColor(getResources().getColor(R.color.colorCameraDark));
+                        }
+                        break;
+                    case 2:
+                        currentFragment = ProfileFragment.newInstance();
+                        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorAboutDark));
+                            getWindow().setStatusBarColor(getResources().getColor(R.color.colorAboutDark));
+                        }
+                        break;
+                }
+
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, currentFragment);
+                transaction.commit();
+                return true;
+            }
+        });
     }
 
     @Override

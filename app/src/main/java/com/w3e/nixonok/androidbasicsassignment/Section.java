@@ -3,7 +3,7 @@ package com.w3e.nixonok.androidbasicsassignment;
 import java.util.ArrayList;
 
 /**
- * Created by Sudarshan on 2/16/2018.
+ * Created by Nixonok on 2/16/2018.
  */
 
 public class Section {

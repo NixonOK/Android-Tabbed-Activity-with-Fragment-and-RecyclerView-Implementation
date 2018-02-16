@@ -1,7 +1,7 @@
 package com.w3e.nixonok.androidbasicsassignment;
 
 /**
- * Created by Sudarshan on 2/15/2018.
+ * Created by Nixonok on 2/15/2018.
  */
 
 public class Item {

@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#FBC02D</color>
     <color name="colorAccent">#F57F17</color>
     <color name="textColor">#212121</color>
+
+    <color name="colorCamera">#9C27B0</color>
+    <color name="colorCameraDark">#7B1FA2</color>
+    <color name="colorAbout">#4CAF50</color>
+    <color name="colorAboutDark">#388E3C</color>
 </resources>
