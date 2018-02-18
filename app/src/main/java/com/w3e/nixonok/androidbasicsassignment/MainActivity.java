@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements  ProfileFragment.
         bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#FEFEFE"));
 
 // Disable the translation inside the CoordinatorLayout
-        bottomNavigation.setBehaviorTranslationEnabled(false);
+        bottomNavigation.setBehaviorTranslationEnabled(true);
 
 // Enable the translation of the FloatingActionButton
         //bottomNavigation.manageFloatingActionButtonBehavior(floatingActionButton);

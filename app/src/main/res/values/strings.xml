@@ -9,5 +9,6 @@
     <string name="home">In base fragment</string>
     <string name="cam">In cam fragment</string>
     <string name="profile">In profile fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>

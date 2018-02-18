@@ -113,7 +113,7 @@ public class FragmentRecyclerView extends Fragment {
                 Item item = new Item();
                 item.setImage(images[0]);
                 item.setTitle("Title " + (j + 1));
-                item.setDescription("Description " + label + " " + (j + 1));
+                item.setDescription("" + label + " " + (j + 1));
 
                 listItem.add(item);
             }

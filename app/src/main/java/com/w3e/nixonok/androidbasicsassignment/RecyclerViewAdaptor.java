@@ -1,6 +1,7 @@
 package com.w3e.nixonok.androidbasicsassignment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,7 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
 
     @Override
     public void onBindViewHolder(final RecyclerViewAdaptor.ViewHolder holder, final int position) {
-        Item myList = list.get(position);
+        final Item myList = list.get(position);
 
         holder.imageView.setImageResource(myList.getImage());
         holder.textViewHead.setText(myList.getTitle());
@@ -47,26 +48,18 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
             public void onClick(View v) {
 
                 showPosition(position);
+
+                Intent intent = new Intent( v.getContext() , Main2Activity.class);
+                intent.putExtra("name", myList.getTitle());
+                intent.putExtra("position", myList.getDescription());
+                v.getContext().startActivity(intent);
             }
 
             private void showPosition(int position) {
-                Toast.makeText(context, "Clicked and Position is " + position, Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(context,  myList.getTitle() +"\n" + myList.getDescription(), Toast.LENGTH_SHORT).show();
 
             }
-        });
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-
-            private void showPositionx(int position) {
-                Toast.makeText(context, "Long Clicked and Position is " + position, Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public boolean onLongClick(View v) {
-                showPositionx(position);
-                return true;
-            }
-
         });
     }
 
@@ -86,6 +79,7 @@ public class RecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerViewAdapto
 
         public ViewHolder(View itemView) {
             super(itemView);
+
 
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
             textViewHead = (TextView) itemView.findViewById(R.id.textViewHead);

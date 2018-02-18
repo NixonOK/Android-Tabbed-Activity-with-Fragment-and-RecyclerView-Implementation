@@ -49,33 +49,6 @@ public class RecyclerViewSectionAdaptor extends RecyclerView.Adapter<RecyclerVie
         RecyclerViewAdaptor adapter = new RecyclerViewAdaptor(myList.getItem(), context);
         holder.recyclerView.setAdapter(adapter);
 
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                showPosition(position);
-            }
-
-            private void showPosition(int position) {
-                Toast.makeText(context, "Clicked and Position is " + position, Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-
-            private void showPositionx(int position) {
-                Toast.makeText(context, "Long Clicked and Position is " + position, Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public boolean onLongClick(View v) {
-                showPositionx(position);
-                return true;
-            }
-
-        });
     }
 
 
